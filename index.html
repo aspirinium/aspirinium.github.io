@@ -15,20 +15,23 @@
         .bgimg {
             background-position: center;
             background-size: cover;
-            background-image: url("/imgs/old_comp.jpeg");
+            background-image: url("imgs/old_comp.jpeg");
             min-height: 75%;
-        }
-
-        .menu {
-            display: none;
         }
     </style>
 </head>
 <body>
 
+<?php
+if($_POST["message"]) {
+mail("irirath@gmail.com", "Here is the subject line",
+$_POST["insert your message here"]. "From: an@email.address");
+}
+?>
+
 <!-- Links (sit on top) -->
 <div class="w3-top">
-    <div class="w3-row w3-padding w3-black">
+    <div class="w3-row w3-padding w3-black" style="alignment: center">
         <div class="w3-col s3">
             <a href="#" class="w3-button w3-block w3-black">HOME</a>
         </div>
@@ -36,24 +39,15 @@
             <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
         </div>
         <div class="w3-col s3">
-            <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
-        </div>
-        <div class="w3-col s3">
-            <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+            <a href="#current_projects" class="w3-button w3-block w3-black">CURRENT PROJECTS</a>
         </div>
     </div>
 </div>
 
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-        <span class="w3-tag">Open from 6am to 5pm</span>
-    </div>
     <div class="w3-display-middle w3-center">
-        <span class="w3-text-white" style="font-size:90px">the<br>Cafe</span>
-    </div>
-    <div class="w3-display-bottomright w3-center w3-padding-large">
-        <span class="w3-text-white">15 Adr street, 5015</span>
+        <span class="w3-text-white" style="font-size:90px"><br>Aspirinium</span>
     </div>
 </header>
 
@@ -65,7 +59,7 @@
         <div class="w3-content" style="max-width:700px">
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">CHEERS, MATES</span></h5>
             <p>My name is Irina, but you can refer to me as Aspirina because of my pain-relieving qualities.</p>
-            <p>Besides being a professional pain-reliever, I also like to dabble in the finer things in life like reading mind-bending books, jamming out to trippy tunes, perusing scientific articles on robots and machine learning, coding like a boss, and keeping my aspirinium molecules from getting too bored. So, naturally, I decided to start this website as a side project for all my side projects.</p>
+            <p>Besides being a professional pain-reliever, I also like to dabble in the finer things in life like reading mind-bending books, jamming out to trippy tunes, perusing scientific articles on robots and machine learning, coding like a boss, and overall keeping my aspirinium molecules from getting too bored. So, naturally, I decided to start this website as a side project for all my side projects.</p>
             <div class="w3-panel w3-leftbar w3-light-grey">
                 <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
                 <p>Chef, Coffeeist and Owner: Liam Brown</p>
@@ -74,20 +68,34 @@
     </div>
 
     <!-- Menu Container -->
-    <div class="w3-container" id="menu">
+    <div class="w3-container" id="current_projects">
         <div class="w3-content" style="max-width:700px">
 
-            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">CURRENT PROJECTS</span></h5>
 
             <div class="w3-row w3-center w3-card w3-padding">
-                <a href="https://aspirinium.github.io/cards_and_humanity/" id="myLink">
+                <a href="javascript:void(0)" onClick="window.open('https://aspirinium.github.io/cards_and_humanity/')">
                     <div class="w3-col s6 tablink">Cards and Humanity</div>
                 </a>
                 <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
                     <div class="w3-col s6 tablink">Evolutionize Your Grasp</div>
                 </a>
             </div>
-            <img src="/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+        </div>
+    </div>
+
+    <!-- Contact Container -->
+    <div class="w3-container" id="where" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">HOW TO CONTACT ME</span></h5>
+            <p>Embarking on a dual mission to conquer the realms of career advancement and ecstatic romance – if you have an opportunity to boost my professional life or the charm to ignite my heart, I cordially invite you to make an entrance into my inbox:</p>
+            <form action="https://formsubmit.co/irirath@gmail.com" method="POST" target="_blank">
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+                <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
+            </form>
         </div>
     </div>
     <!-- End page content -->
@@ -100,7 +108,6 @@
 
 <script>
     // Tabbed Menu
-    document.getElementById("myLink").click();
 </script>
 
 </body>
